@@ -7,7 +7,9 @@ use Carbon\Carbon;
 class Filter
 {
     protected Carbon $from;
+
     protected Carbon $to;
+
     protected string $tz;
 
     public function __construct()
@@ -47,7 +49,8 @@ class Filter
         return $this;
     }
 
-    public function getFrom():Carbon{
+    public function getFrom(): Carbon
+    {
         return $this->from;
     }
 
@@ -63,12 +66,13 @@ class Filter
         return $this;
     }
 
-    public function getTo():Carbon{
+    public function getTo(): Carbon
+    {
         return $this->to;
     }
 
-    public function getTz():string{
+    public function getTz(): string
+    {
         return $this->tz;
     }
-
 }

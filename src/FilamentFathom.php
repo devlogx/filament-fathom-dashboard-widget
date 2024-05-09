@@ -10,7 +10,6 @@ use MarcReichel\LaravelFathom\Fathom;
 class FilamentFathom
 {
     /**
-     *
      * @throws \Exception Missing Fathom API-Token and or Site id
      */
     public function __construct()
@@ -45,9 +44,9 @@ class FilamentFathom
                 ->currentVisitors(true);
         }
 
-        return $this->getCachedValue('current-visitors-' . $filter->hash(), function () use ($filter) {
+        return $this->getCachedValue('current-visitors-' . $filter->hash(), function () {
             return Fathom::site(config('filament-fathom-dashboard-widget.site_id'))
-                ->currentVisitors(false)["total"];
+                ->currentVisitors(false)['total'];
         });
     }
 
@@ -63,8 +62,8 @@ class FilamentFathom
                 ->aggregate(['avg_duration'])
                 ->groupByMonth()
                 ->orderBy('timestamp', 'asc')
-                ->fromDate($filter->getFrom()->format("Y-m-d H:i:s"))
-                ->toDate($filter->getTo()->format("Y-m-d H:i:s"))
+                ->fromDate($filter->getFrom()->format('Y-m-d H:i:s'))
+                ->toDate($filter->getTo()->format('Y-m-d H:i:s'))
                 ->timezone($filter->getTz())
                 ->get();
         }
@@ -74,24 +73,24 @@ class FilamentFathom
                 ->aggregate(['avg_duration'])
                 ->groupByMonth()
                 ->orderBy('timestamp', 'asc')
-                ->fromDate($filter->getFrom()->format("Y-m-d H:i:s"))
-                ->toDate($filter->getTo()->format("Y-m-d H:i:s"))
+                ->fromDate($filter->getFrom()->format('Y-m-d H:i:s'))
+                ->toDate($filter->getTo()->format('Y-m-d H:i:s'))
                 ->timezone($filter->getTz())
                 ->get();
 
-            if(isset($durationDays["message"]))
-            {
-                return "00:00";
+            if (isset($durationDays['message'])) {
+                return '00:00';
             }
 
             $avgTimeArray = array_map(function ($item) {
-                return (int)$item['avg_duration'];
+                return (int) $item['avg_duration'];
             }, $durationDays);
             if (count($avgTimeArray) == 2) {
                 $avgDuration = array_sum($avgTimeArray) / 2;
             } else {
                 $avgDuration = array_sum($avgTimeArray);
             }
+
             return CarbonInterval::seconds($avgDuration)->cascade()->format('%I:%S');
         });
     }
@@ -108,8 +107,8 @@ class FilamentFathom
                 ->aggregate(['visits'])
                 ->groupByDay()
                 ->orderBy('timestamp', 'asc')
-                ->fromDate($filter->getFrom()->format("Y-m-d H:i:s"))
-                ->toDate($filter->getTo()->format("Y-m-d H:i:s"))
+                ->fromDate($filter->getFrom()->format('Y-m-d H:i:s'))
+                ->toDate($filter->getTo()->format('Y-m-d H:i:s'))
                 ->timezone($filter->getTz())
                 ->get();
         }
@@ -119,18 +118,17 @@ class FilamentFathom
                 ->aggregate(['visits'])
                 ->groupByDay()
                 ->orderBy('timestamp', 'asc')
-                ->fromDate($filter->getFrom()->format("Y-m-d H:i:s"))
-                ->toDate($filter->getTo()->format("Y-m-d H:i:s"))
+                ->fromDate($filter->getFrom()->format('Y-m-d H:i:s'))
+                ->toDate($filter->getTo()->format('Y-m-d H:i:s'))
                 ->timezone($filter->getTz())
                 ->get();
 
-            if(isset($stats["message"]))
-            {
-                return [0,[0]];
+            if (isset($stats['message'])) {
+                return [0, [0]];
             }
 
             $visitsArray = array_map(function ($item) {
-                return (int)$item['visits'];
+                return (int) $item['visits'];
             }, $stats);
             $totalVisits = array_sum($visitsArray);
 
@@ -153,8 +151,8 @@ class FilamentFathom
                 ->aggregate(['pageviews'])
                 ->groupByDay()
                 ->orderBy('timestamp', 'asc')
-                ->fromDate($filter->getFrom()->format("Y-m-d H:i:s"))
-                ->toDate($filter->getTo()->format("Y-m-d H:i:s"))
+                ->fromDate($filter->getFrom()->format('Y-m-d H:i:s'))
+                ->toDate($filter->getTo()->format('Y-m-d H:i:s'))
                 ->timezone($filter->getTz())
                 ->get();
         }
@@ -164,18 +162,17 @@ class FilamentFathom
                 ->aggregate(['pageviews'])
                 ->groupByDay()
                 ->orderBy('timestamp', 'asc')
-                ->fromDate($filter->getFrom()->format("Y-m-d H:i:s"))
-                ->toDate($filter->getTo()->format("Y-m-d H:i:s"))
+                ->fromDate($filter->getFrom()->format('Y-m-d H:i:s'))
+                ->toDate($filter->getTo()->format('Y-m-d H:i:s'))
                 ->timezone($filter->getTz())
                 ->get();
 
-            if(isset($stats["message"]))
-            {
-                return [0,[0]];
+            if (isset($stats['message'])) {
+                return [0, [0]];
             }
 
             $pageViewsArray = array_map(function ($item) {
-                return (int)$item['pageviews'];
+                return (int) $item['pageviews'];
             }, $stats);
             $totalPageViews = array_sum($pageViewsArray);
 
@@ -185,5 +182,4 @@ class FilamentFathom
             ];
         });
     }
-
 }

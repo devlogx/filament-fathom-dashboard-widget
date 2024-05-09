@@ -14,6 +14,7 @@ use Malzariey\FilamentDaterangepickerFilter\Fields\DateRangePicker;
 trait HasFilter
 {
     use HasFiltersForm;
+
     public function filtersForm(Form $form): Form
     {
         return $form
