@@ -1,4 +1,4 @@
-![FilamentFathomWidget.png](./art/FilamentFathomWidget.png)
+![FilamentFathomWidget.png](https://raw.githubusercontent.com/devlogx/filament-fathom-dashboard-widget/main/art/FilamentFathomWidget.png)
 # Filament Fathom Dashboard Widget
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/devlogx/filament-fathom-dashboard-widget.svg?style=flat-square)](https://packagist.org/packages/devlogx/filament-fathom-dashboard-widget)
@@ -9,8 +9,8 @@
 This package allows you to integrate a simple analytics dashboard widget for panel.
 
 ## Screenshots
-![filament_fathom_light.jpg](./art/filament_fathom_light.jpg)
-![filament_fathom_dark.jpg](./art/filament_fathom_dark.jpg)
+![filament_fathom_light.jpg](https://raw.githubusercontent.com/devlogx/filament-fathom-dashboard-widget/main/art/filament_fathom_light.jpg)
+![filament_fathom_dark.jpg](https://raw.githubusercontent.com/devlogx/filament-fathom-dashboard-widget/main/art/filament_fathom_dark.jpg)
 
 ## Installation
 
