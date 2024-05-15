@@ -1,4 +1,8 @@
-![FilamentFathomWidget.png](https://raw.githubusercontent.com/devlogx/filament-fathom-dashboard-widget/main/art/FilamentFathomWidget.png)
+<picture class="filament-hidden">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/devlogx/filament-fathom-dashboard-widget/main/art/FilamentFathomWidget.png">
+  <img alt="XtendLaravel" src="https://raw.githubusercontent.com/devlogx/filament-fathom-dashboard-widget/main/art/FilamentFathomWidget.png">
+</picture>
+
 # Filament Fathom Dashboard Widget
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/devlogx/filament-fathom-dashboard-widget.svg?style=flat-square)](https://packagist.org/packages/devlogx/filament-fathom-dashboard-widget)
